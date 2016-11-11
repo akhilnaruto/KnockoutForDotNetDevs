@@ -5,13 +5,20 @@
 	<meta charset="utf-8" />
 </head>
 <body>
-   The First Name is <span data-bind ="text: firstName"></span><br/>
-   <span data-bind="text:firstName"> </span> is <span data-bind="text: age() > 18 ? 'adult' : 'young' "></span><br/>
+<!--text binding-->
+The First Name is <span data-bind ="text: firstName"></span><br/>
+<!--expression binding-->
+<span data-bind="text:firstName"> </span> is <span data-bind="text: age() > 18 ? 'adult' : 'young' "></span><br/>
+<!--html binding-->
 <span data-bind="html:about"></span>
+<!--style binding-->
 <div data-bind="style : {color:favoriteColor()}">
   Naruto's fav color is <span data-bind="text:favoriteColor"></span>
 </div>
- 
+<!--attribute binding-->
+<div>
+  Johns fav color is <a data-bind="attr:{href:favoriteUrl()}">Packt Pub</a>
+</div>
 </body>
 <script src="Scripts/knockout-3.4.0.debug.js"></script>
 <script type="text/javascript">
@@ -21,7 +28,8 @@
     firstName: 'Naruto',
     age: 17,
     about: "John's favorite site is <a href='http://www.packtpub.com'>PacktPub</a>.",
-    favoriteColor: 'green'
+    favoriteColor: 'green',
+    favoriteUrl: "http://www.packtpub.com"
   };
 
   //View Model
@@ -31,6 +39,7 @@
     self.age = ko.observable(person.age);
     self.about = ko.observable(person.about);
     self.favoriteColor = ko.observable(person.favoriteColor);
+    self.favoriteUrl = ko.observable(person.favoriteUrl);
   };
 
   //apply
