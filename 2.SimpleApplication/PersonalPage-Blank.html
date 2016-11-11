@@ -8,20 +8,10 @@
    The First Name is <span data-bind ="text: firstName"></span><br/>
    <span data-bind="text:firstName"> </span> is <span data-bind="text: age() > 18 ? 'adult' : 'young' "></span><br/>
 <span data-bind="html:about"></span>
-  <style type="text/css">
-    .redStyle {
-      color: red;
-    }
-
-    .greenStyle {
-      color: green;
-    }
-  </style>
-  <div data-bind="css: { redStyle: favoriteColor() == 'red',
-greenStyle: favoriteColor() == 'green' }">
-    John's favorite color is <span data-bind="text:
-favoriteColor"></span>.
-  </div>
+<div data-bind="style : {color:favoriteColor()}">
+  Naruto's fav color is <span data-bind="text:favoriteColor"></span>
+</div>
+ 
 </body>
 <script src="Scripts/knockout-3.4.0.debug.js"></script>
 <script type="text/javascript">
@@ -31,7 +21,7 @@ favoriteColor"></span>.
     firstName: 'Naruto',
     age: 17,
     about: "John's favorite site is <a href='http://www.packtpub.com'>PacktPub</a>.",
-    favoriteColor: 'red'
+    favoriteColor: 'green'
   };
 
   //View Model
