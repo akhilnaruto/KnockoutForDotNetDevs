@@ -15,12 +15,22 @@
   </div>
 </form>
   <!--Submit Binding-->
-  <div>
-    Naruto's age is <span data-bind="text:age"></span>
-    <form data-bind="submit:growOld">
-      <button type="submit"> Grow Old</button>
-    </form>
+<div>
+  Naruto's age is <span data-bind="text:age"></span>
+  <form data-bind="submit:growOld">
+    <button type="submit"> Grow Old</button>
+  </form>
+</div>
+<!--Event Binding-->
+<div>
+  <div data-bind="event:{mouseover :showAbout,mouseout:hideAbout}">
+    Mouse Over to view the information about john
   </div>
+  <div data-bind="visible:aboutEnabled">
+    Johns favorite site is <a href="http://www.packtpub.com"></a>
+  </div>
+</div>
+
 </body>
 <script src="Scripts/knockout-3.4.0.debug.js"></script>
 <script type="text/javascript">
@@ -38,7 +48,16 @@
     {
       var previousAge = self.age();
       self.age(previousAge + 1);
-    }
+    };
+    self.aboutEnabled = ko.observable(false);
+    self.showAbout = function()
+    {
+      self.aboutEnabled(true);
+    };
+    self.hideAbout = function()
+    {
+      self.aboutEnabled(false);
+    };
   };
   
   //apply bindings
