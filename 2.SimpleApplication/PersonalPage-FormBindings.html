@@ -33,13 +33,16 @@
 <!--Checked Binding-->
 <form>
   <p>
-    <input type="checkbox" data-bind="checked:isMarried" />
+    <input type="checkbox" data-bind="checked:isMarried"/>
     is married
   </p>
   <p>
     Wife's Name:
     <input type="text" data-bind="value:wife, enable:isMarried"/>
   </p>
+</form>
+<form>
+  <select multiple="multiple" data-bind="options:childern"></select>
 </form>
 </body>
 <script src="Scripts/knockout-3.4.0.debug.js"></script>
@@ -49,7 +52,8 @@
     firstName: 'Naruto',
     age: 26,
     isMarried: true,
-    wife:''
+    wife: '',
+    children:['Jonnie','Jane','Richard','Mary']
   };
   //View Model
   var personViewModel = function (){
@@ -72,6 +76,7 @@
     };
     self.isMarried = ko.observable(person.isMarried);
     self.wife = ko.observable(person.wife);
+    self.childern = person.children;
   };
   
   //apply bindings
