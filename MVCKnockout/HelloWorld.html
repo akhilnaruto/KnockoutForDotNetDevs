@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+  <meta charset="utf-8"/>
+  <title>Hello Naruto Uzumaki</title>
+</head>
+<body>
+<span data-bind="text: message"></span>
+<button data-bind ="click : addExclamationMark">Add Exclamation Mark!</button>
+<script src="Scripts/knockout-3.4.0.debug.js">
+</script>
+
+  <script type="text/javascript">
+    var viewModel = {
+      message: ko.observable(),
+      addExclamationMark:function()
+      {
+        this.message(this.message() + "!");
+      }
+    };
+    viewModel.message('Hello Naruto');
+    ko.applyBindings(viewModel);
+  </script>
+</body>
+</html>
