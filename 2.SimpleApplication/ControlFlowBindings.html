@@ -20,11 +20,19 @@
   Wife's First Name <span data-bind="text:firstName"></span><br/>
   Wife's Last Name <span data-bind="text:lastName"></span>
 </div>
+<div>
+  The First Name:<span data-bind="text:firstName"></span><br/>
+  The Last Name:<span data-bind="text:lastName"></span><br/>
+  The Full Name: <span data-bind="text:fullName"></span>
+
+</div>
 </body>
 <script src="Scripts/knockout-3.4.0.debug.js"></script>
 <script type="text/javascript">
   //model
   var person = {
+    firstName: 'John',
+    lastName:'Doe',
     children: [
       { firstName: 'Naruto', age: 12 },
       { firstName: 'Sasuke', age: 14 },
@@ -40,6 +48,12 @@
   var personViewModel = function()
   {
     var self = this;
+    self.firstName = ko.observable(person.firstName);
+    self.lastName = ko.observable(person.lastName);
+    self.fullName = ko.computed(function()
+    {
+      return self.firstName() + " " + self.lastName();
+    });
     self.children = person.children;
     self.wife = ko.observable(person.wife);
   };
