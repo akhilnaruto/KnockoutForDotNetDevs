@@ -19,6 +19,10 @@ The First Name is <span data-bind ="text: firstName"></span><br/>
 <div>
   Johns fav color is <a data-bind="attr:{href:favoriteUrl()}">Packt Pub</a>
 </div>
+<!--visible binding-->
+<div data-bind="visible:favoriteSite().length > 0">
+  Johns fav site is <span data-bind="text:favoriteSite"></span>
+</div>
 </body>
 <script src="Scripts/knockout-3.4.0.debug.js"></script>
 <script type="text/javascript">
@@ -29,7 +33,8 @@ The First Name is <span data-bind ="text: firstName"></span><br/>
     age: 17,
     about: "John's favorite site is <a href='http://www.packtpub.com'>PacktPub</a>.",
     favoriteColor: 'green',
-    favoriteUrl: "http://www.packtpub.com"
+    favoriteUrl: "http://www.packtpub.com",
+    favoriteSite:'PacktPub'
   };
 
   //View Model
@@ -40,6 +45,7 @@ The First Name is <span data-bind ="text: firstName"></span><br/>
     self.about = ko.observable(person.about);
     self.favoriteColor = ko.observable(person.favoriteColor);
     self.favoriteUrl = ko.observable(person.favoriteUrl);
+    self.favoriteSite = ko.observable(person.favoriteSite);
   };
 
   //apply
