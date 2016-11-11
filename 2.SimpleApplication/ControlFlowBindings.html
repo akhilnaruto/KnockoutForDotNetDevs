@@ -5,17 +5,21 @@
 	<meta charset="utf-8" />
 </head>
 <body>
-  <table>
-    <thead>
-      <tr><th>First name</th><th>Age</th></tr>
-    </thead>
-    <tbody data-bind="foreach: children">
-      <tr>
-        <td data-bind="text: firstName"></td>
-        <td data-bind="text: age"></td>
-      </tr>
-    </tbody>
-  </table>
+<table>
+  <thead>
+    <tr><th>First name</th><th>Age</th></tr>
+  </thead>
+  <tbody data-bind="foreach: children">
+    <tr>
+      <td data-bind="text: firstName"></td>
+      <td data-bind="text: age"></td>
+    </tr>
+  </tbody>
+</table>
+<div data-bind="with:wife">
+  Wife's First Name <span data-bind="text:firstName"></span><br/>
+  Wife's Last Name <span data-bind="text:lastName"></span>
+</div>
 </body>
 <script src="Scripts/knockout-3.4.0.debug.js"></script>
 <script type="text/javascript">
@@ -26,13 +30,18 @@
       { firstName: 'Sasuke', age: 14 },
       { firstName: 'Sakura', age: 15 },
       {firstName:'Mary',age:17}
-    ]
+    ],
+    wife: {
+      firstName: 'Jessica',
+      lastName:'Doe'
+    }
   };
   // view model
   var personViewModel = function()
   {
     var self = this;
     self.children = person.children;
+    self.wife = ko.observable(person.wife);
   };
 
   //apply bindings
