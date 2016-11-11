@@ -76,6 +76,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="PersonalPage-Blank.html" />
+    <Content Include="PersonalPage-FormBindings.html" />
     <Content Include="Scripts\knockout-3.4.0.debug.js" />
     <Content Include="Scripts\knockout-3.4.0.js" />
     <Content Include="Web.config" />

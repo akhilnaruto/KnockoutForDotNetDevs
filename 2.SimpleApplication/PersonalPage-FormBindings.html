@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Personal Page</title>
+	<meta charset="utf-8" />
+</head>
+<body>
+<form>
+  <!--value bindings-->
+  The First Name is <input type="text" data-bind="value:firstName"/>
+  <!-- click Binding-->
+
+</form>
+</body>
+<script src="Scripts/knockout-3.4.0.debug.js"></script>
+<script type="text/javascript">
+  //model
+  var person = {
+    firstName:'Naruto'
+  };
+  //View Model
+  var personViewModel = function (){
+    var self = this;
+    this.firstName = ko.observable(person.firstName);
+  };
+  
+  //apply bindings
+  ko.applyBindings(personViewModel);
+</script>
+</html>
