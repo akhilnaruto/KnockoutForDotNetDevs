@@ -9,6 +9,10 @@
   <!--value bindings-->
   The First Name is <input type="text" data-bind="value:firstName"/>
   <!-- click Binding-->
+  <div>
+    Naruto's age is <span data-bind="text:age"></span>
+    <button data-bind="click:growOld"> Grow Old</button>
+  </div>
 
 </form>
 </body>
@@ -16,12 +20,19 @@
 <script type="text/javascript">
   //model
   var person = {
-    firstName:'Naruto'
+    firstName: 'Naruto',
+    age:26
   };
   //View Model
   var personViewModel = function (){
     var self = this;
-    this.firstName = ko.observable(person.firstName);
+    self.firstName = ko.observable(person.firstName);
+    self.age = ko.observable(person.age);
+    self.growOld = function()
+    {
+      var previousAge = self.age();
+      self.age(previousAge + 1);
+    }
   };
   
   //apply bindings
