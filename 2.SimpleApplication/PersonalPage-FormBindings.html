@@ -42,7 +42,10 @@
   </p>
 </form>
 <form>
-  <select multiple="multiple" data-bind="options:childern"></select>
+  <select multiple="multiple" data-bind="options:children"></select>
+</form>
+<form>
+  <select multiple="multiple" data-bind="options:children , selectedOptions:selectedChildren"></select>
 </form>
 </body>
 <script src="Scripts/knockout-3.4.0.debug.js"></script>
@@ -53,7 +56,8 @@
     age: 26,
     isMarried: true,
     wife: '',
-    children:['Jonnie','Jane','Richard','Mary']
+    children: ['Jonnie', 'Jane', 'Richard', 'Mary'],
+    selectedChildren:['Jonnie','Mary']
   };
   //View Model
   var personViewModel = function (){
@@ -76,7 +80,8 @@
     };
     self.isMarried = ko.observable(person.isMarried);
     self.wife = ko.observable(person.wife);
-    self.childern = person.children;
+    self.children = person.children;
+    self.selectedChildren = person.selectedChildren;
   };
   
   //apply bindings
