@@ -20,11 +20,18 @@
   Wife's First Name <span data-bind="text:firstName"></span><br/>
   Wife's Last Name <span data-bind="text:lastName"></span>
 </div>
+ <!-- Computed Observable-->
 <div>
   The First Name:<span data-bind="text:firstName"></span><br/>
   The Last Name:<span data-bind="text:lastName"></span><br/>
   The Full Name: <span data-bind="text:fullName"></span>
-
+</div>
+<!--Observable Array-->
+<form>
+  <select multiple="multiple" data-bind="options:observableChildren"></select>
+</form>
+<div>
+  
 </div>
 </body>
 <script src="Scripts/knockout-3.4.0.debug.js"></script>
@@ -39,6 +46,7 @@
       { firstName: 'Sakura', age: 15 },
       {firstName:'Mary',age:17}
     ],
+    observableChildren:['Jonnie','Marie','Kristen','James'],
     wife: {
       firstName: 'Jessica',
       lastName:'Doe'
@@ -56,6 +64,7 @@
     });
     self.children = person.children;
     self.wife = ko.observable(person.wife);
+    self.observableChildren = ko.observableArray(person.observableChildren);  
   };
 
   //apply bindings
